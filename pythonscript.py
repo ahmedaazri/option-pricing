@@ -167,7 +167,7 @@ def black_scholes(PC, S, K, r, v, T, t = 0, div=0):
     
     return option_price_BS
 
-
+st.markdown("<h2 style='text-align: center; color: #0073e6;'>Made by Your Name</h2>", unsafe_allow_html=True)
 
 # Titre de l'application
 st.title("Valorisation d'Options")
