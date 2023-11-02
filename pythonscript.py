@@ -195,7 +195,7 @@ if r < d or r > u:
     st.write("Erreur : Existence d'opportunité d'arbitrage. Le taux d'intérêt (r) doit être dans l'intervalle [d, u].")
 else:
     with graph_col:
-    if st.button("Calculer et afficher les Graphes"):
+        if st.button("Calculer et afficher les Graphes"):
         fig = plt.figure(figsize=(6, 8))  # Adjust the figure size as needed
         
         # Create the "Prix" graph on the top
