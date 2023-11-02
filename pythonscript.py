@@ -196,28 +196,32 @@ if 1+r < d or 1+r > u:
     st.write("Erreur : Existence d'opportunité d'arbitrage. Le taux d'intérêt (r) doit être dans l'intervalle [d, u].")
 else:
     with graph_col:
-        if st.button("Calculer et afficher les Graphes"):
-            fig = plt.figure(figsize=(6, 8))  # Adjust the figure size as needed
-        
-        # Create the "Prix" graph on the top
-        plt.subplot(2, 1, 1)  # 2 rows, 1 column, the first subplot
-        binomial_grid(option_type, n, S, K, r, v, T, PC, "Prix")
-        plt.title("graph des prix de sous-jacent")
+        # ...
 
-        # Create the "Option" graph on the bottom
-        plt.subplot(2, 1, 2)  # 2 rows, 1 column, the second subplot
-        binomial_grid(option_type, n, S, K, r, v, T, PC, "Option")
-        plt.title("graph des prix de l'option")
+if st.button("Calculer et afficher les Graphes"):
+    fig = plt.figure(figsize=(6, 8))  # Adjust the figure size as needed
 
-        st.pyplot(fig)
+    # Create the "Prix" graph on the top
+    plt.subplot(2, 1, 1)  # 2 rows, 1 column, the first subplot
+    binomial_grid(option_type, n, S, K, r, v, T, PC, "Prix")
+    plt.title("graph des prix de sous-jacent")
+
+    # Create the "Option" graph on the bottom
+    plt.subplot(2, 1, 2)  # 2 rows, 1 column, the second subplot
+    binomial_grid(option_type, n, S, K, r, v, T, PC, "Option")
+    plt.title("graph des prix de l'option")
+
+    st.pyplot(fig)
 
     # Display the price of the option
     [_, Cm] = OptionsValintPresicion(option_type, n, S, K, r, v, T, PC)
     option_price = Cm[0, 0]
     option_price_BS = black_scholes(PC, S, K, r, v, T)
-    st.write(f"Prix de l'option selon le modele binomiale : {option_price}")
-    st.write(f"Prix de l'option selon le modele black and scholes : {option_price_BS}")
+    st.write(f"Prix de l'option selon le modèle binomial : {option_price}")
+    st.write(f"Prix de l'option selon le modèle Black and Scholes : {option_price_BS}")
 
+
+    
 
 
 
