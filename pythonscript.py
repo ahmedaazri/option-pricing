@@ -186,8 +186,15 @@ with input_col:
     n = st.number_input("Nombre de périodes (n)", min_value=1, step=1, value=4)
 
 # Graph on the right column
+# Check if r is within the [d, u] interval
+dt = T / n
+u = m.exp(v * m.sqrt(dt))
+d = 1 / u
 
-with graph_col:
+if r < d or r > u:
+    st.write("Erreur : Existence d'opportunité d'arbitrage. Le taux d'intérêt (r) doit être dans l'intervalle [d, u].")
+else:
+    with graph_col:
     if st.button("Calculer et afficher les Graphes"):
         fig = plt.figure(figsize=(6, 8))  # Adjust the figure size as needed
         
