@@ -167,6 +167,25 @@ def black_scholes(PC, S, K, r, v, T, t = 0, div=0):
     
     return option_price_BS
 
+# Function to plot option price evolution over up to 15 periods
+def plot_option_price_evolution(S, K, r, v, T, PC):
+    max_periods = 15
+    option_prices = []
+
+    for n in range(1, max_periods + 1):
+        _, Cm = OptionsValintPresicion(option_type, n, S, K, r, v, T, PC)
+        option_price = Cm[0, 0]
+        option_prices.append(option_price)
+
+    # Create the plot
+    plt.figure(figsize=(8, 6))
+    plt.plot(range(1, max_periods + 1), option_prices, marker='o', linestyle='-')
+    plt.xlabel('Nombre de périodes')
+    plt.ylabel("Prix de l'option")
+    plt.title("Évolution du prix de l'option (modèle binomial) par rapport au nombre de périodes")
+    plt.grid(True)
+    st.pyplot(plt)
+
 
 # Titre de l'application
 st.title("Valorisation d'Options")
@@ -196,6 +215,7 @@ if 1+r < d or 1+r > u:
 else:
     with graph_col:
         if st.button("Calculer et afficher les Graphes"):
+            plot_option_price_evolution(S, K, r, v, T, PC)
             fig = plt.figure(figsize=(6, 8))  # Adjust the figure size as needed
 
             # Create the "Prix" graph on the top
