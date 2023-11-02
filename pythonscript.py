@@ -167,7 +167,6 @@ def black_scholes(PC, S, K, r, v, T, t = 0, div=0):
     
     return option_price_BS
 
-st.markdown("<h4 style='text-align: center;'><a href='https://www.linkedin.com/in/ahmed-aazri/' target='_blank' style='color: #0073e6;'>visit my linked in profile</a></h4>", unsafe_allow_html=True)
 
 # Titre de l'application
 st.title("Valorisation d'Options")
@@ -210,3 +209,11 @@ with graph_col:
     option_price_BS = black_scholes(PC, S, K, r, v, T)
     st.write(f"Prix de l'option selon le modele binomiale : {option_price}")
     st.write(f"Prix de l'option selon le modele black and scholes : {option_price_BS}")
+
+
+
+
+st.markdown("<h5 style='text-align: center;'><a href='https://www.linkedin.com/in/ahmed-aazri/' target='_blank' style='color: #0073e6;'>visit my linked in profile</a></h4>", unsafe_allow_html=True)
+
+
+
