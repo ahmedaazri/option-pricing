@@ -196,7 +196,7 @@ if r < d or r > u:
 else:
     with graph_col:
         if st.button("Calculer et afficher les Graphes"):
-        fig = plt.figure(figsize=(6, 8))  # Adjust the figure size as needed
+            fig = plt.figure(figsize=(6, 8))  # Adjust the figure size as needed
         
         # Create the "Prix" graph on the top
         plt.subplot(2, 1, 1)  # 2 rows, 1 column, the first subplot
