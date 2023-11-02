@@ -167,23 +167,28 @@ def black_scholes(PC, S, K, r, v, T, t = 0, div=0):
     
     return option_price_BS
 
-# Function to plot option price evolution over up to 15 periods
-def plot_option_price_evolution(S, K, r, v, T, PC):
+# Function to plot option price evolution and convergence
+def plot_option_price_convergence(S, K, r, v, T, PC):
     max_periods = 15
     option_prices = []
+    bs_prices = []
 
     for n in range(1, max_periods + 1):
         _, Cm = OptionsValintPresicion(option_type, n, S, K, r, v, T, PC)
         option_price = Cm[0, 0]
         option_prices.append(option_price)
+        bs_price = black_scholes(PC, S, K, r, v, T)
+        bs_prices.append(bs_price)
 
     # Create the plot
     plt.figure(figsize=(8, 6))
     plt.plot(range(1, max_periods + 1), option_prices, marker='o', linestyle='-')
+    plt.plot(range(1, max_periods + 1), bs_prices, linestyle='--', label='Black and Scholes')
     plt.xlabel('Nombre de périodes')
     plt.ylabel("Prix de l'option")
-    plt.title("Évolution du prix de l'option (modèle binomial) par rapport au nombre de périodes")
+    plt.title("Convergence du prix de l'option fourni par le modèle binomial au prix fourni par BS")
     plt.grid(True)
+    plt.legend()
     st.pyplot(plt)
 
 
@@ -234,7 +239,7 @@ else:
             [_, Cm] = OptionsValintPresicion(option_type, n, S, K, r, v, T, PC)
             option_price = Cm[0, 0]
             option_price_BS = black_scholes(PC, S, K, r, v, T)
-            st.write(f"Prix de l'option selon le modèle binomial : {option_price}")
+            st.write(f"Prix de l'option selon le modèle binomial avec {n} periodes : {option_price}")
             st.write(f"Prix de l'option selon le modèle Black and Scholes : {option_price_BS}")
 
 
