@@ -189,7 +189,9 @@ with input_col:
 # Check if r is within the [d, u] interval
 dt = T / n
 u = m.exp(v * m.sqrt(dt))
+print(u)
 d = 1 / u
+print(d)
 
 if r < d or r > u:
     st.write("Erreur : Existence d'opportunité d'arbitrage. Le taux d'intérêt (r) doit être dans l'intervalle [d, u].")
