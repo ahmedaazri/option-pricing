@@ -211,12 +211,13 @@ else:
 
             st.pyplot(fig)
 
-        # Display the price of the option
-        [_, Cm] = OptionsValintPresicion(option_type, n, S, K, r, v, T, PC)
-        option_price = Cm[0, 0]
-        option_price_BS = black_scholes(PC, S, K, r, v, T)
-        st.write(f"Prix de l'option selon le modèle binomial : {option_price}")
-        st.write(f"Prix de l'option selon le modèle Black and Scholes : {option_price_BS}")
+            # Display the price of the option
+            [_, Cm] = OptionsValintPresicion(option_type, n, S, K, r, v, T, PC)
+            option_price = Cm[0, 0]
+            option_price_BS = black_scholes(PC, S, K, r, v, T)
+            st.write(f"Prix de l'option selon le modèle binomial : {option_price}")
+            st.write(f"Prix de l'option selon le modèle Black and Scholes : {option_price_BS}")
+
 
     
 
