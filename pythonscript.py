@@ -191,7 +191,8 @@ dt = T / n
 u = m.exp(v * m.sqrt(dt))
 d = 1 / u
 if 1+r < d or 1+r > u:
-    st.write(f"Erreur : Existence d'opportunité d'arbitrage. Le taux d'intérêt (r={1+r}) doit être dans l'intervalle [d={d}, u={u})")
+    with graph_col:
+        st.write(f"Erreur : Existence d'opportunité d'arbitrage. Le taux d'intérêt (r={1+r}) doit être dans l'intervalle [d={d}, u={u})")
 else:
     with graph_col:
         if st.button("Calculer et afficher les Graphes"):
