@@ -220,7 +220,7 @@ if 1+r < d or 1+r > u:
 else:
     with graph_col:
         if st.button("Calculer et afficher les Graphes"):
-            plot_option_price_evolution(S, K, r, v, T, PC)
+            plot_option_price_convergence(S, K, r, v, T, PC)
             fig = plt.figure(figsize=(6, 8))  # Adjust the figure size as needed
 
             # Create the "Prix" graph on the top
